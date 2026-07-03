@@ -7,7 +7,11 @@
     "imagePath": "users/aditzmods/mods/aditzmods-88bict-textures-1783054860751.jpg",
     "ownerId": "aditzmods",
     "ownerUsername": "aditzmods",
-    "createdAt": "2026-07-03T05:01:03.971Z"
+    "createdAt": "2026-07-03T05:01:03.971Z",
+    "starredBy": [
+      "aditzmods"
+    ],
+    "stars": 1
   },
   {
     "id": "minecraft-bug-edition-1782986742064",
