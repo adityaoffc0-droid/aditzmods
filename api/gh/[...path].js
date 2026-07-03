@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
   const token = process.env.GITHUB_TOKEN; 
   const owner = 'adityaoffc0-droid';
-  const repo = 'Aditzmods';
+  const repo = 'aditzmods';
 
   const pathParts = req.query.path || [];
   const ghPath = Array.isArray(pathParts) ? pathParts.join('/') : pathParts;
