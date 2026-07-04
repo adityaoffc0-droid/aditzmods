@@ -1,0 +1,11 @@
+{
+  "id": "aditzmods-v10-1783169698280",
+  "name": "Aditzmods V10",
+  "gameName": "For Shottings Game",
+  "code": "loadstring(game:HttpGet(\"https://pastebin.com/raw/Kqz8TCCS\", true))()\n",
+  "type": "Free",
+  "imagePath": "users/realaditzmods/robloxscripts/aditzmods-v10-1783169698280.jpg",
+  "ownerId": "realaditzmods",
+  "ownerUsername": "RealAditzmods",
+  "createdAt": "2026-07-04T12:55:01.224Z"
+}
