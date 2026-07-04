@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Mod Uploader</title>
+<title>AditzMods</title>
+
 <style>
 html,body{
     margin:0;
+    width:100%;
     height:100%;
 }
 iframe{
@@ -15,20 +17,29 @@ iframe{
     border:none;
 }
 </style>
+
 </head>
 <body>
 
 <iframe id="frame"></iframe>
 
 <script>
-fetch("link.json")
-.then(res => res.json())
-.then(data => {
-    document.getElementById("frame").src = data.url;
-})
-.catch(() => {
-    document.body.innerHTML = "<h2>fuck you mean</h2>";
-});
+(async () => {
+    try {
+        const res = await fetch("/link.json", {
+            cache: "no-store"
+        });
+
+        if (!res.ok) throw new Error("wait updating html");
+
+        const data = await res.json();
+
+        document.getElementById("frame").src = data.url;
+    } catch (e) {
+        document.body.innerHTML = "<h2>" + e.message + "</h2>";
+        console.error(e);
+    }
+})();
 </script>
 
 </body>
