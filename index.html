@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free All Game Mod Uploader">
-    <meta name="author" content="Aditzmods">
-    <meta name="google-site-verification" content="MyvCZ0cciVb9GxaB04zalSPoC5ztTA5DlzUprYgLzYg" />
-    
-    <title>Free Mod Uploader - Aditzmods</title>
-    
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Mod Uploader</title>
+<style>
+html,body{
+    margin:0;
+    height:100%;
+}
+iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}
+</style>
 </head>
 <body>
-    <iframe src="https://lannytourl.vestia.icu/api/file/6a47ab6454cd04937d265803.html"></iframe>
+
+<iframe id="frame"></iframe>
+
+<script>
+fetch("link.json")
+.then(res => res.json())
+.then(data => {
+    document.getElementById("frame").src = data.url;
+})
+.catch(() => {
+    document.body.innerHTML = "<h2>fuck you mean</h2>";
+});
+</script>
+
 </body>
 </html>
