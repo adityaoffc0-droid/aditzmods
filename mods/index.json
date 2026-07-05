@@ -64,6 +64,10 @@
     "imagePath": "users/mods/mods/minecraft-bug-edition-1782986742064.png",
     "ownerId": "mods",
     "ownerUsername": "mods",
-    "createdAt": "2026-07-02T10:05:47.106Z"
+    "createdAt": "2026-07-02T10:05:47.106Z",
+    "starredBy": [
+      "realaditzmods"
+    ],
+    "stars": 1
   }
 ]
