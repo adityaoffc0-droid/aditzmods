@@ -21,8 +21,10 @@
     "imagePath": "users/realaditzmods/mods/ankit-hunter-v11-1783083020947.jpg",
     "ownerId": "realaditzmods",
     "ownerUsername": "RealAditzmods",
-    "stars": 0,
-    "starredBy": [],
+    "stars": 1,
+    "starredBy": [
+      "realaditzmods"
+    ],
     "createdAt": "2026-07-03T12:50:23.820Z"
   },
   {
