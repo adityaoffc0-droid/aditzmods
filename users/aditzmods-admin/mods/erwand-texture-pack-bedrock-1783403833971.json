@@ -6,7 +6,9 @@
   "imagePath": "users/aditzmods-admin/mods/erwand-texture-pack-bedrock-1783403833971.jpg",
   "ownerId": "aditzmods-admin",
   "ownerUsername": "Aditzmods",
-  "stars": 0,
-  "starredBy": [],
+  "stars": 1,
+  "starredBy": [
+    "aditzmods-admin"
+  ],
   "createdAt": "2026-07-07T05:57:16.981Z"
 }
