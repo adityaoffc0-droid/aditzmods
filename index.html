@@ -1,46 +1,228 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en" class="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AditzMods</title>
-
-<style>
-html,body{
-    margin:0;
-    width:100%;
-    height:100%;
-}
-iframe{
-    width:100%;
-    height:100%;
-    border:none;
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditzmods</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        darkBg: '#090d16',
+                        cardBg: '#111827',
+                        accentGold: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #090d16;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .hero-glow {
+            background: radial-gradient(circle at center, rgba(245, 158, 11, 0.15) 0%, rgba(9, 13, 22, 0) 70%);
+        }
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+    </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-black">
 
-<iframe id="frame"></iframe>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 hero-glow pointer-events-none z-0"></div>
 
-<script>
-(async () => {
-    try {
-        const res = await fetch("/link.json", {
-            cache: "no-store"
-        });
+    <header class="glass-panel sticky top-0 z-50 border-b border-gray-800/80">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="https://aditzmods.my.id" class="text-xl font-extrabold tracking-wider text-white flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-600 to-amber-400 flex items-center justify-center text-black shadow-lg shadow-amber-500/20 group-hover:scale-105 transition duration-300">
+                    <i class="fa-solid fa-cube text-lg"></i>
+                </div>
+                <span>ADITZ<span class="text-amber-500">MODS</span></span>
+            </a>
+            <a href="https://aditzmods.my.id" target="_blank" class="relative group overflow-hidden rounded-xl p-[1px] font-semibold text-sm">
+                <span class="absolute inset-0 bg-gradient-to-r from-amber-500 to-yellow-300 group-hover:opacity-100 transition duration-300"></span>
+                <span class="relative px-5 py-2.5 rounded-xl bg-gray-950 text-white flex items-center gap-2 group-hover:bg-opacity-90 transition duration-300">
+                    <i class="fa-solid fa-globe text-amber-400"></i> Official Site
+                </span>
+            </a>
+        </div>
+    </header>
 
-        if (!res.ok) throw new Error("wait updating html");
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 flex-grow w-full relative z-10">
+        
+        <div class="glass-panel rounded-3xl overflow-hidden shadow-2xl mb-10 border border-gray-800">
+            <div class="relative h-72 sm:h-[420px] w-full overflow-hidden">
+                <img src="https://files.catbox.moe/fs4y0c.jpg" alt="Newb - GoldenMax Cover" class="w-full h-full object-cover transform hover:scale-105 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent"></div>
+                <div class="absolute bottom-8 left-8 right-8">
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider backdrop-blur-md">
+                            Minecraft Bedrock Shader
+                        </span>
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight drop-shadow-md">Newb - GoldenMax</h1>
+                </div>
+            </div>
+            
+            <div class="p-6 sm:p-10">
+                <div class="bg-gradient-to-r from-amber-500/10 via-amber-500/50 to-transparent border-l-4 border-amber-500 p-4 sm:p-5 rounded-r-2xl mb-8 flex items-center gap-4 shadow-inner">
+                    <div class="bg-amber-500 text-black p-3.5 rounded-xl text-xl shadow-lg flex-shrink-0">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-base">Compatibility Note</h4>
+                        <p class="text-sm text-gray-300 font-medium">Only works with MB Loader</p>
+                    </div>
+                </div>
 
-        const data = await res.json();
+                <div class="space-y-6 text-gray-300 leading-relaxed text-base font-normal">
+                    <p class="text-lg text-gray-200 font-medium">
+                        Newb - GoldenXtra is an enhanced vanilla shader designed to improve the visual quality of Minecraft while preserving the original gameplay experience. It delivers warm golden lighting, vibrant colors, improved sky rendering, realistic atmospheric fog, smoother shadows, and refined environmental effects without changing the classic Minecraft style.
+                    </p>
+                    <p>
+                        This shader focuses on performance and compatibility, making it suitable for Android devices running Minecraft Bedrock through MB Loader. Every visual enhancement has been carefully balanced to provide a beautiful and immersive world while maintaining stable gameplay.
+                    </p>
 
-        document.getElementById("frame").src = data.url;
-    } catch (e) {
-        document.body.innerHTML = "<h2>" + e.message + "</h2>";
-        console.error(e);
-    }
-})();
-</script>
+                    <div class="pt-4">
+                        <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                            <span class="w-2.5 h-8 bg-amber-500 rounded-full inline-block"></span> Features:
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                            <div class="bg-gray-900/60 border border-gray-800 p-4 rounded-xl flex items-start gap-3.5 hover:border-amber-500/50 transition duration-300">
+                                <div class="bg-amber-500/10 text-amber-400 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-sun text-sm"></i></div>
+                                <div><strong class="text-white block text-sm font-semibold mb-0.5">Golden Lighting</strong><span class="text-sm text-gray-400">Warm golden sunrise and sunset lighting.</span></div>
+                            </div>
+                            <div class="bg-gray-900/60 border border-gray-800 p-4 rounded-xl flex items-start gap-3.5 hover:border-amber-500/50 transition duration-300">
+                                <div class="bg-amber-500/10 text-amber-400 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-palette text-sm"></i></div>
+                                <div><strong class="text-white block text-sm font-semibold mb-0.5">Vibrant Colors</strong><span class="text-sm text-gray-400">Enhanced daylight with vibrant yet natural colors.</span></div>
+                            </div>
+                            <div class="bg-gray-900/60 border border-gray-800 p-4 rounded-xl flex items-start gap-3.5 hover:border-amber-500/50 transition duration-300">
+                                <div class="bg-amber-500/10 text-amber-400 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-moon text-sm"></i></div>
+                                <div><strong class="text-white block text-sm font-semibold mb-0.5">Night Atmosphere</strong><span class="text-sm text-gray-400">Improved night atmosphere with softer moonlight.</span></div>
+                            </div>
+                            <div class="bg-gray-900/60 border border-gray-800 p-4 rounded-xl flex items-start gap-3.5 hover:border-amber-500/50 transition duration-300">
+                                <div class="bg-amber-500/10 text-amber-400 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-cloud text-sm"></i></div>
+                                <div><strong class="text-white block text-sm font-semibold mb-0.5">Sky & Clouds</strong><span class="text-sm text-gray-400">Beautiful gradients and realistic cloud options.</span></div>
+                            </div>
+                            <div class="bg-gray-900/60 border border-gray-800 p-4 rounded-xl flex items-start gap-3.5 hover:border-amber-500/50 transition duration-300">
+                                <div class="bg-amber-500/10 text-amber-400 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-smog text-sm"></i></div>
+                                <div><strong class="text-white block text-sm font-semibold mb-0.5">Dynamic Fog</strong><span class="text-sm text-gray-400">Dynamic fog with optional fog-free subpacks.</span></div>
+                            </div>
+                            <div class="bg-gray-900/60 border border-gray-800 p-4 rounded-xl flex items-start gap-3.5 hover:border-amber-500/50 transition duration-300">
+                                <div class="bg-amber-500/10 text-amber-400 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-wind text-sm"></i></div>
+                                <div><strong class="text-white block text-sm font-semibold mb-0.5">Smooth Animation</strong><span class="text-sm text-gray-400">Smooth waving leaves, grass, and crops.</span></div>
+                            </div>
+                            <div class="bg-gray-900/60 border border-gray-800 p-4 rounded-xl flex items-start gap-3.5 hover:border-amber-500/50 transition duration-300">
+                                <div class="bg-amber-500/10 text-amber-400 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-water text-sm"></i></div>
+                                <div><strong class="text-white block text-sm font-semibold mb-0.5">Water Effects</strong><span class="text-sm text-gray-400">Enhanced water appearance and reflections.</span></div>
+                            </div>
+                            <div class="bg-gray-900/60 border border-gray-800 p-4 rounded-xl flex items-start gap-3.5 hover:border-amber-500/50 transition duration-300">
+                                <div class="bg-amber-500/10 text-amber-400 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-mountain text-sm"></i></div>
+                                <div><strong class="text-white block text-sm font-semibold mb-0.5">Cave Ambience</strong><span class="text-sm text-gray-400">Better cave ambience and environmental lighting.</span></div>
+                            </div>
+                            <div class="bg-gray-900/60 border border-gray-800 p-4 rounded-xl flex items-start gap-3.5 hover:border-amber-500/50 transition duration-300">
+                                <div class="bg-amber-500/10 text-amber-400 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-spinner text-sm"></i></div>
+                                <div><strong class="text-white block text-sm font-semibold mb-0.5">Chunk Loading</strong><span class="text-sm text-gray-400">Optional chunk loading animation.</span></div>
+                            </div>
+                            <div class="bg-gray-900/60 border border-gray-800 p-4 rounded-xl flex items-start gap-3.5 hover:border-amber-500/50 transition duration-300">
+                                <div class="bg-amber-500/10 text-amber-400 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-cloud-sun text-sm"></i></div>
+                                <div><strong class="text-white block text-sm font-semibold mb-0.5">Cloud Styles</strong><span class="text-sm text-gray-400">Realistic, Rounded, and Box Cloud styles.</span></div>
+                            </div>
+                            <div class="bg-gray-900/60 border border-gray-800 p-4 rounded-xl flex items-start gap-3.5 hover:border-amber-500/50 transition duration-300">
+                                <div class="bg-amber-500/10 text-amber-400 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-mobile-screen text-sm"></i></div>
+                                <div><strong class="text-white block text-sm font-semibold mb-0.5">Performance Friendly</strong><span class="text-sm text-gray-400">Optimized for a wide range of Android devices.</span></div>
+                            </div>
+                            <div class="bg-gray-900/60 border border-gray-800 p-4 rounded-xl flex items-start gap-3.5 hover:border-amber-500/50 transition duration-300">
+                                <div class="bg-amber-500/10 text-amber-400 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-sliders text-sm"></i></div>
+                                <div><strong class="text-white block text-sm font-semibold mb-0.5">Modular Subpacks</strong><span class="text-sm text-gray-400">Customize your visual experience easily.</span></div>
+                            </div>
+                            <div class="bg-gray-900/60 border border-gray-800 p-4 rounded-xl flex items-start gap-3.5 hover:border-amber-500/50 transition duration-300 sm:col-span-2">
+                                <div class="bg-amber-500/10 text-amber-400 p-2 rounded-lg mt-0.5"><i class="fa-solid fa-shield-halved text-sm"></i></div>
+                                <div><strong class="text-white block text-sm font-semibold mb-0.5">Vanilla Faithful</strong><span class="text-sm text-gray-400">Preserves original vanilla look while making the world feel richer and alive.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="pt-4 text-gray-300">
+                        Whether you're exploring vast landscapes, building impressive creations, or surviving through the night, Newb - GoldenXtra delivers a visually stunning experience without sacrificing Minecraft's iconic aesthetic.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-panel rounded-3xl p-6 sm:p-10 mb-10 border border-gray-800">
+            <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                <span class="w-2.5 h-8 bg-amber-500 rounded-full inline-block"></span> Screenshots
+            </h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+                <div class="overflow-hidden rounded-2xl border border-gray-800 bg-gray-900 group shadow-lg">
+                    <img src="https://files.catbox.moe/mwgmsi.jpg" alt="Screenshot 1" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-2xl border border-gray-800 bg-gray-900 group shadow-lg">
+                    <img src="https://files.catbox.moe/azfjkg.jpg" alt="Screenshot 2" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-2xl border border-gray-800 bg-gray-900 group shadow-lg">
+                    <img src="https://files.catbox.moe/uuwltu.jpg" alt="Screenshot 3" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-2xl border border-gray-800 bg-gray-900 group shadow-lg">
+                    <img src="https://files.catbox.moe/dcns4b.jpg" alt="Screenshot 4" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-2xl border border-gray-800 bg-gray-900 group shadow-lg sm:col-span-2 md:col-span-2">
+                    <img src="https://files.catbox.moe/a9vnec.jpg" alt="Screenshot 5" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+                </div>
+            </div>
+        </div>
+
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-400 p-8 sm:p-12 text-black text-center shadow-2xl">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black pointer-events-none">
+                <i class="fa-solid fa-gamepad"></i>
+            </div>
+            <h3 class="text-3xl sm:text-4xl font-black mb-3 tracking-tight">Ready to Enhance Your World?</h3>
+            <p class="text-gray-900 mb-8 text-base font-bold max-w-lg mx-auto">Developed by Aditzmods. Experience Minecraft Bedrock like never before with ultimate visual performance.</p>
+            <a href="https://aditzmods.my.id" target="_blank" class="inline-flex items-center gap-3 bg-gray-950 text-white font-extrabold px-9 py-4 rounded-2xl hover:bg-gray-900 transition duration-300 shadow-xl hover:scale-105 transform">
+                <i class="fa-solid fa-globe text-amber-400 text-lg"></i> Visit Official Website
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="glass-panel border-t border-gray-800/80 text-center py-8 mt-16 text-gray-400 text-sm">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 Aditzmods. All rights reserved.</p>
+            <div class="flex items-center gap-4 text-lg">
+                <a href="https://aditzmods.my.id" target="_blank" class="text-gray-400 hover:text-amber-400 transition duration-300"><i class="fa-solid fa-globe"></i></a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
